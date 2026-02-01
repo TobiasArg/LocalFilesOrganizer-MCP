@@ -70,10 +70,10 @@ export function getConfigDir(): string {
   const home = homedir();
 
   if (platform() === "win32") {
-    return join(home, "AppData", "Local", "fso");
+    return join(home, "AppData", "Local", "fsorg");
   }
 
-  return join(home, ".config", "fso");
+  return join(home, ".config", "fsorg");
 }
 
 export function getConfigPath(): string {

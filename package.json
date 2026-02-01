@@ -1,5 +1,5 @@
 {
-  "name": "fso",
+  "name": "fsorg",
   "version": "1.0.0",
   "description": "MCP server for local file management with safety protections",
   "license": "ISC",
@@ -7,7 +7,7 @@
   "type": "module",
   "main": "dist/index.js",
   "bin": {
-    "fso": "./dist/index.js"
+    "fsorg": "dist/index.js"
   },
   "files": [
     "dist",
@@ -29,7 +29,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/argtobias/local-files-mcp"
+    "url": "git+https://github.com/argtobias/local-files-mcp.git"
   },
   "engines": {
     "node": ">=18.0.0"
