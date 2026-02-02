@@ -62,6 +62,7 @@ Then configure Claude Desktop:
 ### Safety Configuration
 
 Create a config file at:
+
 -- **macOS/Linux**: `~/.config/localfiles-org/config.json`
 
 -- **Windows**: `%LOCALAPPDATA%\localfiles-org\config.json`
