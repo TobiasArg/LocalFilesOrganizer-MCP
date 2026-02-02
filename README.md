@@ -27,7 +27,7 @@ Add to your Claude Desktop configuration file:
   "mcpServers": {
     "local-files": {
       "command": "npx",
-      "args": ["-y", "localfiles-org"]
+      "args": ["-y", "fsorg"]
     }
   }
 }
@@ -38,8 +38,8 @@ That's it! Claude Desktop will automatically download and run the MCP server via
 ### Alternative: Install from source
 
 ```bash
-git clone https://github.com/argtobias/localfiles-org.git
-cd localfiles-org
+git clone https://github.com/argtobias/fsorg.git
+cd fsorg
 pnpm install
 pnpm build
 ```
@@ -51,7 +51,7 @@ Then configure Claude Desktop:
   "mcpServers": {
     "local-files": {
       "command": "node",
-      "args": ["/path/to/localfiles-org/dist/index.js"]
+      "args": ["/path/to/fsorg/dist/index.js"]
     }
   }
 }
@@ -60,8 +60,8 @@ Then configure Claude Desktop:
 ### Safety Configuration
 
 Create a config file at:
--- **macOS/Linux**: `~/.config/localfiles-org/config.json`
--- **Windows**: `%LOCALAPPDATA%\localfiles-org\config.json`
+-- **macOS/Linux**: `~/.config/fsorg/config.json`
+-- **Windows**: `%LOCALAPPDATA%\fsorg\config.json`
 
 ```json
 {
@@ -180,7 +180,7 @@ Create a config file at:
     "mcpServers": {
       "local-files": {
         "command": "npx",
-        "args": ["-y", "localfiles-org"]
+        "args": ["-y", "fsorg"]
       }
     }
   }
@@ -189,8 +189,8 @@ Create a config file at:
   From source:
 
   ```bash
-  git clone https://github.com/argtobias/localfiles-org.git
-  cd localfiles-org
+  git clone https://github.com/argtobias/fsorg.git
+  cd fsorg
   pnpm install
   pnpm build
   ```
@@ -199,8 +199,8 @@ Create a config file at:
 
   Create user config at:
 
-  - macOS/Linux: `~/.config/localfiles-org/config.json`
-  - Windows: `%LOCALAPPDATA%\\localfiles-org\\config.json`
+  - macOS/Linux: `~/.config/fsorg/config.json`
+  - Windows: `%LOCALAPPDATA%\\fsorg\\config.json`
 
   Minimal config example:
 
