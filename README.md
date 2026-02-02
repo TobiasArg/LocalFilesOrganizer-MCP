@@ -167,60 +167,85 @@ Create a config file at:
 ```json
 {
   "tool": "organize_by_type",
-  "arguments": {
-    "source": "~/Downloads/unsorted",
-    "destination": "~/Downloads/sorted",
-    "criteria": "extension"
+  # Local Files MCP Server
+
+  Simple MCP server for safe local file operations: read, write, search, organize and protected delete.
+
+  ## Quick install
+
+  Run via npx (recommended for Claude Desktop):
+
+  ```json
+  {
+    "mcpServers": {
+      "local-files": {
+        "command": "npx",
+        "args": ["-y", "localfiles-org"]
+      }
+    }
   }
-}
-```
+  ```
 
-## Safety Features
+  From source:
 
-### Delete Protection
+  ```bash
+  git clone https://github.com/argtobias/localfiles-org.git
+  cd localfiles-org
+  pnpm install
+  pnpm build
+  ```
 
-All delete operations include:
+  ## Configuration
 
-1. **Scope validation** - Only works within configured `allowedPaths`
-2. **Protected path check** - Cannot delete system or user-critical paths
-3. **Pattern matching** - Blocks deletion of files matching protected patterns
-4. **Preview mode** - See what will be deleted before executing
-5. **Recursive confirmation** - Requires explicit `confirmRecursive: true`
+  Create user config at:
 
-### Example Safety Response
+  - macOS/Linux: `~/.config/localfiles-org/config.json`
+  - Windows: `%LOCALAPPDATA%\\localfiles-org\\config.json`
 
-```json
-{
-  "executed": false,
-  "message": "BLOCKED: OUTSIDE_ALLOWED_SCOPE - Path is outside allowed paths",
-  "safetyChecks": {
-    "withinScope": false,
-    "notProtected": true,
-    "allowedPaths": ["~/projects", "~/dev"]
+  Minimal config example:
+
+  ```json
+  {
+    "allowedPaths": ["~/projects", "~/Development"],
+    "additionalProtectedPaths": [],
+    "additionalProtectedPatterns": []
   }
-}
-```
+  ```
 
-## Development
+  ## Safety
 
-```bash
-# Install dependencies
-pnpm install
+  - Only operations inside `allowedPaths` can delete files.
+  - System and user-critical paths are always protected.
+  - Pattern-based protection (e.g. `.git`, `.env`) is enforced.
 
-# Build
-pnpm build
+  ## Usage examples
 
-# Development mode (watch)
-pnpm dev
+  Read a file:
 
-# Test tools
-echo '{"jsonrpc":"2.0","method":"tools/list","id":1}' | node dist/index.js
-```
+  ```json
+  { "tool": "read_file", "arguments": { "path": "~/projects/myfile.txt" } }
+  ```
 
-## License
+  Find duplicates:
 
-ISC
+  ```json
+  { "tool": "find_duplicates", "arguments": { "path": "~/projects/images", "recursive": true } }
+  ```
 
-## Contributing
+  Delete with preview (safe):
 
-Contributions welcome! Please read the safety guidelines before submitting PRs that modify delete functionality.
+  ```json
+  { "tool": "delete_file", "arguments": { "path": "~/projects/temp/old.txt", "preview": true } }
+  ```
+
+  ## Development
+
+  ```bash
+  pnpm install
+  pnpm build
+  pnpm dev
+  ```
+
+  ## License
+
+  ISC
