@@ -14,12 +14,14 @@ A Model Context Protocol (MCP) server for managing local files. Provides tools f
 
 ## Installation
 
-### Claude Desktop Setup (Recommended)
+### NPX
 
 Add to your Claude Desktop configuration file:
 
 **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
+
 **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
+
 **Linux**: `~/.config/Claude/claude_desktop_config.json`
 
 ```json
@@ -60,8 +62,10 @@ Then configure Claude Desktop:
 ### Safety Configuration
 
 Create a config file at:
--- **macOS/Linux**: `~/.config/fsorg/config.json`
--- **Windows**: `%LOCALAPPDATA%\fsorg\config.json`
+
+-- **macOS/Linux**: `~/.config/localfiles-org/config.json`
+
+-- **Windows**: `%LOCALAPPDATA%\localfiles-org\config.json`
 
 ```json
 {
@@ -199,8 +203,9 @@ Create a config file at:
 
   Create user config at:
 
-  - macOS/Linux: `~/.config/fsorg/config.json`
-  - Windows: `%LOCALAPPDATA%\\fsorg\\config.json`
+  - macOS/Linux: `~/.config/localfiles-org/config.json`
+    
+  - Windows: `%LOCALAPPDATA%\\localfiles-org\\config.json`
 
   Minimal config example:
 
