@@ -14,12 +14,14 @@ A Model Context Protocol (MCP) server for managing local files. Provides tools f
 
 ## Installation
 
-### Claude Desktop Setup (Recommended)
+### NPX
 
 Add to your Claude Desktop configuration file:
 
 **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
+
 **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
+
 **Linux**: `~/.config/Claude/claude_desktop_config.json`
 
 ```json
